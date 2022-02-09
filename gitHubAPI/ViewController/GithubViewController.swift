@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  gitHubAPI
-//
-//  Created by Vishal Modani on 07/02/22.
-//
-
 import UIKit
 
 class GithubViewController: UIViewController {
@@ -47,8 +40,13 @@ extension GithubViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let repoItem = viewModel.cellForRowAt(indexPath: indexPath)
-        let detailsViewConroller = DetailsViewController()
-        detailsViewConroller.showDetails(repoItem)
+        //let detailsViewConroller = DetailsViewController()
+        //self.navigationController?.pushViewController(detailsViewConroller, animated: true)
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+        vc?.repoItem = repoItem
+        self.navigationController?.pushViewController(vc!, animated: true)
+        //vc?.showDetails(repoItem)
+        
     }
 }
 

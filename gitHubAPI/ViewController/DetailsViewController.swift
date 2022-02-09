@@ -15,20 +15,22 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var totalStars: UILabel!
     
     @IBOutlet weak var totalAddedStars: UILabel!
+    var repoItem : Item?
     
-    func showDetails(_ item:Item)
+    func showDetails(_ item:Item?)
     {
-        self.repoName.text = item.repo
-        self.repoDescription.text = item.desc
-        self.repoLink.text = item.repoLink
-        self.language.text = item.lang
-        self.totalForks.text = item.forks
-        self.totalStars.text = item.stars
-        self.totalAddedStars.text = item.addedStars
+        self.repoName.text = item?.repo
+        self.repoDescription.text = item?.desc
+        self.repoLink.text = item?.repoLink
+        self.language.text = item?.lang
+        self.totalForks.text = item?.forks
+        self.totalStars.text = item?.stars
+        self.totalAddedStars.text = item?.addedStars
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showDetails(self.repoItem)
         // Do any additional setup after loading the view.
     }
     
