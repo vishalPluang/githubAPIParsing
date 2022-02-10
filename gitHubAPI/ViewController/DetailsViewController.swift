@@ -19,8 +19,8 @@ class DetailsViewController: UIViewController {
     
     func showDetails(_ item:Item?)
     {
-        self.repoName.text = "Name Of The Repo: \(item?.repo ?? "empty")"
-        self.repoDescription.text = "Description: \(item?.desc ?? "empty")"
+        self.repoName.text = item?.repo
+        self.repoDescription.text = item?.desc
         self.repoLink.text = item?.repoLink
         self.language.text = item?.lang
         self.totalForks.text = item?.forks
@@ -33,16 +33,4 @@ class DetailsViewController: UIViewController {
         showDetails(self.repoItem)
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
