@@ -2,6 +2,7 @@ import UIKit
 
 class GithubViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var tableView: UITableView!
     var viewModel = GithubViewModel()
@@ -13,10 +14,13 @@ class GithubViewController: UIViewController {
     }
         
     private func loadPopularGithubData() {
+        
+        activityIndicator.startAnimating()
         viewModel.fetchPopularGithubData { [weak self] in
             self?.tableView.dataSource = self
             self?.tableView.delegate = self
             self?.tableView.reloadData()
+            self?.activityIndicator.stopAnimating()
         }
     }
 }
@@ -40,13 +44,9 @@ extension GithubViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let repoItem = viewModel.cellForRowAt(indexPath: indexPath)
-        //let detailsViewConroller = DetailsViewController()
-        //self.navigationController?.pushViewController(detailsViewConroller, animated: true)
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
         vc?.repoItem = repoItem
         self.navigationController?.pushViewController(vc!, animated: true)
-        //vc?.showDetails(repoItem)
-        
     }
 }
 

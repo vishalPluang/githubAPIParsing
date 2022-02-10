@@ -19,8 +19,8 @@ class DetailsViewController: UIViewController {
     
     func showDetails(_ item:Item?)
     {
-        self.repoName.text = item?.repo
-        self.repoDescription.text = item?.desc
+        self.repoName.text = "Name Of The Repo: \(item?.repo ?? "empty")"
+        self.repoDescription.text = "Description: \(item?.desc ?? "empty")"
         self.repoLink.text = item?.repoLink
         self.language.text = item?.lang
         self.totalForks.text = item?.forks
