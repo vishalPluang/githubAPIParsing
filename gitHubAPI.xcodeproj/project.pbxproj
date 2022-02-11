@@ -17,7 +17,9 @@
 		0644E88E27B13F8C00798469 /* apiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E88D27B13F8C00798469 /* apiService.swift */; };
 		0644E89127B1433200798469 /* GithubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89027B1433200798469 /* GithubViewModel.swift */; };
 		0644E89427B1472D00798469 /* GithubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89327B1472D00798469 /* GithubTableViewCell.swift */; };
-		0644E89727B26B7900798469 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89627B26B7900798469 /* DetailsViewController.swift */; };
+		0644E89927B5248F00798469 /* NewDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89827B5248F00798469 /* NewDetailsViewController.swift */; };
+		0644E89B27B524F900798469 /* NewDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89A27B524F900798469 /* NewDetailsViewModel.swift */; };
+		0644E89D27B528CC00798469 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89C27B528CC00798469 /* DetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,9 @@
 		0644E88D27B13F8C00798469 /* apiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiService.swift; sourceTree = "<group>"; };
 		0644E89027B1433200798469 /* GithubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubViewModel.swift; sourceTree = "<group>"; };
 		0644E89327B1472D00798469 /* GithubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTableViewCell.swift; sourceTree = "<group>"; };
-		0644E89627B26B7900798469 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		0644E89827B5248F00798469 /* NewDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailsViewController.swift; sourceTree = "<group>"; };
+		0644E89A27B524F900798469 /* NewDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailsViewModel.swift; sourceTree = "<group>"; };
+		0644E89C27B528CC00798469 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				0644E89027B1433200798469 /* GithubViewModel.swift */,
+				0644E89A27B524F900798469 /* NewDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 			children = (
 				0644E87A27B13C8000798469 /* Main.storyboard */,
 				0644E89327B1472D00798469 /* GithubTableViewCell.swift */,
+				0644E89C27B528CC00798469 /* DetailTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				0644E87827B13C8000798469 /* GithubViewController.swift */,
-				0644E89627B26B7900798469 /* DetailsViewController.swift */,
+				0644E89827B5248F00798469 /* NewDetailsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -195,12 +201,14 @@
 			files = (
 				0644E87927B13C8000798469 /* GithubViewController.swift in Sources */,
 				0644E88E27B13F8C00798469 /* apiService.swift in Sources */,
+				0644E89B27B524F900798469 /* NewDetailsViewModel.swift in Sources */,
 				0644E87527B13C8000798469 /* AppDelegate.swift in Sources */,
-				0644E89727B26B7900798469 /* DetailsViewController.swift in Sources */,
 				0644E89127B1433200798469 /* GithubViewModel.swift in Sources */,
 				0644E89427B1472D00798469 /* GithubTableViewCell.swift in Sources */,
 				0644E87727B13C8000798469 /* SceneDelegate.swift in Sources */,
+				0644E89927B5248F00798469 /* NewDetailsViewController.swift in Sources */,
 				0644E88B27B13EA100798469 /* model.swift in Sources */,
+				0644E89D27B528CC00798469 /* DetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

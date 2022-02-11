@@ -8,9 +8,9 @@ class GithubViewController: UIViewController {
     var viewModel = GithubViewModel()
     
     override func viewDidLoad() {
-            super.viewDidLoad()
-            // Do any additional setup after loading the view.
-            loadPopularGithubData()
+        super.viewDidLoad()
+        self.title = "Popular Repostries"
+        loadPopularGithubData()
     }
         
     private func loadPopularGithubData() {
@@ -44,7 +44,7 @@ extension GithubViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let repoItem = viewModel.cellForRowAt(indexPath: indexPath)
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewDetailsViewController") as? NewDetailsViewController
         vc?.repoItem = repoItem
         self.navigationController?.pushViewController(vc!, animated: true)
     }
