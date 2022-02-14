@@ -16,28 +16,31 @@ class GithubViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DispatchQueue.main.async {
-            self.reachability.whenReachable = { reachability in
-                if reachability.connection == .wifi {
-                    print("Reachable via WiFi")
-                } else {
-                    print("Reachable via Cellular")
-                }
+        self.reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+            DispatchQueue.main.async {
                 self.view.window?.rootViewController?.dismiss(animated: true)
             }
-            self.reachability.whenUnreachable = { _ in
-                print("Not reachable")
-                if let networkVC = self.storyboard?.instantiateViewController(withIdentifier:"NetworkErrorViewController") as? NetworkErrorViewController
-                {
-                    self.present(networkVC, animated: true)
+        }
+        self.reachability.whenUnreachable = { _ in
+            print("Not reachable")
+            if let networkVC = self.storyboard?.instantiateViewController(withIdentifier:"NetworkErrorViewController") as? NetworkErrorViewController
+            {
+                print("going!")
+                DispatchQueue.main.async {
+                    self.present(networkVC, animated: true, completion: nil)
                 }
             }
+        }
 
-            do {
-                try self.reachability.startNotifier()
-            } catch {
-                print("Unable to start notifier")
-            }
+        do {
+            try self.reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
         }
     }
     
