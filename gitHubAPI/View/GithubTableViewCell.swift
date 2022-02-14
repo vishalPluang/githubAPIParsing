@@ -49,6 +49,8 @@ class GithubTableViewCell: UITableViewCell {
             DispatchQueue.main.async {
                 if let image = UIImage(data: data) {
                     self.posterImage.image = image
+                    self.posterImage.clipsToBounds = true
+                    self.posterImage.layer.cornerRadius = self.posterImage.frame.height/2
                 }
             }
         }.resume()
