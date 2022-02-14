@@ -20,6 +20,8 @@
 		0644E89927B5248F00798469 /* NewDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89827B5248F00798469 /* NewDetailsViewController.swift */; };
 		0644E89B27B524F900798469 /* NewDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89A27B524F900798469 /* NewDetailsViewModel.swift */; };
 		0644E89D27B528CC00798469 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89C27B528CC00798469 /* DetailTableViewCell.swift */; };
+		06C75F4B27BA576A00288A53 /* NetworkErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75F4A27BA576A00288A53 /* NetworkErrorViewController.swift */; };
+		06C75F4D27BA584600288A53 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75F4C27BA584600288A53 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		0644E89827B5248F00798469 /* NewDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailsViewController.swift; sourceTree = "<group>"; };
 		0644E89A27B524F900798469 /* NewDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailsViewModel.swift; sourceTree = "<group>"; };
 		0644E89C27B528CC00798469 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		06C75F4A27BA576A00288A53 /* NetworkErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorViewController.swift; sourceTree = "<group>"; };
+		06C75F4C27BA584600288A53 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				0644E88D27B13F8C00798469 /* apiService.swift */,
+				06C75F4C27BA584600288A53 /* Reachability.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			children = (
 				0644E87827B13C8000798469 /* GithubViewController.swift */,
 				0644E89827B5248F00798469 /* NewDetailsViewController.swift */,
+				06C75F4A27BA576A00288A53 /* NetworkErrorViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -200,6 +206,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0644E87927B13C8000798469 /* GithubViewController.swift in Sources */,
+				06C75F4B27BA576A00288A53 /* NetworkErrorViewController.swift in Sources */,
+				06C75F4D27BA584600288A53 /* Reachability.swift in Sources */,
 				0644E88E27B13F8C00798469 /* apiService.swift in Sources */,
 				0644E89B27B524F900798469 /* NewDetailsViewModel.swift in Sources */,
 				0644E87527B13C8000798469 /* AppDelegate.swift in Sources */,
