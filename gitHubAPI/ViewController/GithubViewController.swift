@@ -2,59 +2,33 @@ import UIKit
 
 class GithubViewController: UIViewController {
     
-    let reachability = try! Reachability()
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView?
     var viewModel = GithubViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Treding Repositry"
         loadPopularGithubData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.reachability.whenReachable = { reachability in
-            if reachability.connection == .wifi {
-                print("Reachable via WiFi")
-            } else {
-                print("Reachable via Cellular")
-            }
-            DispatchQueue.main.async {
-                self.view.window?.rootViewController?.dismiss(animated: true)
-            }
-        }
-        self.reachability.whenUnreachable = { _ in
-            print("Not reachable")
-            if let networkVC = self.storyboard?.instantiateViewController(withIdentifier:"NetworkErrorViewController") as? NetworkErrorViewController
-            {
-                print("going!")
-                DispatchQueue.main.async {
-                    self.present(networkVC, animated: true, completion: nil)
-                }
-            }
-        }
-
-        do {
-            try self.reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
+        
     }
     
     deinit {
-        reachability.stopNotifier()
+       debugPrint("------ GithubViewController is removed from memory -------")
     }
     
     private func loadPopularGithubData() {
         
         activityIndicator.startAnimating()
         viewModel.fetchPopularGithubData { [weak self] in
-            self?.tableView.dataSource = self
-            self?.tableView.delegate = self
-            self?.tableView.reloadData()
+            self?.tableView?.dataSource = self
+            self?.tableView?.delegate = self
+            self?.tableView?.reloadData()
             self?.activityIndicator.stopAnimating()
         }
     }
@@ -70,6 +44,7 @@ extension GithubViewController: UITableViewDataSource, UITableViewDelegate {
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GithubTableViewCell
         
+        cell.selectionStyle = .none
         let githubItem = viewModel.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(githubItem)
         
