@@ -2,9 +2,9 @@ import Foundation
 
 struct ApiService
 {
-    func getPopularGithubData(completionHandler: @escaping(Result<GitHub, Error>) -> Void)
+    func getPopularGithubData(language: String, completionHandler: @escaping(Result<GitHub, Error>) -> Void)
     {
-        let githubApiUrl = "https://trendings.herokuapp.com/repo?lang=java&since=weekly"
+        let githubApiUrl = "https://trendings.herokuapp.com/repo?lang=\(language)&since=weekly"
         
         let apiUrl = URL(string: githubApiUrl)!
         

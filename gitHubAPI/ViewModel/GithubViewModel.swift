@@ -5,9 +5,9 @@ class GithubViewModel {
     private var apiService = ApiService()
     var popularRepos = [Item]()
     
-    func fetchPopularGithubData(completion: @escaping () -> ()) {
+    func fetchPopularGithubData(lang: String, completion: @escaping () -> ()) {
         
-        apiService.getPopularGithubData { [weak self] (result) in
+        apiService.getPopularGithubData(language: lang) { [weak self] (result) in
             
             switch result {
             case .success(let listOf):

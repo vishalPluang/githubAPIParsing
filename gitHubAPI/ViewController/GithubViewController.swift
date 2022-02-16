@@ -1,23 +1,42 @@
 import UIKit
+import DropDown
 
 class GithubViewController: UIViewController {
+    
+    
+    @IBOutlet weak var dropDownview: UIView!
+    
+    @IBOutlet weak var selectedDropdown: UILabel!
+    
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var tableView: UITableView?
+    
     var viewModel = GithubViewModel()
+    let dropDown = DropDown()
+    let dropDownValues = ["c++", "java", "python"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Treding Repositry"
-        loadPopularGithubData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
+        selectedDropdown.text = "Select a language for trending repositry"
+        dropDown.anchorView = dropDownview
+        dropDown.dataSource = dropDownValues
+        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
+        dropDown.direction = .bottom
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)")
+            selectedDropdown.text = item
+            loadPopularGithubData()
+        }
     }
     
+    @IBAction func showLanguages(_ sender: Any) {
+        dropDown.show()
+    }
+
     deinit {
        debugPrint("------ GithubViewController is removed from memory -------")
     }
@@ -25,7 +44,7 @@ class GithubViewController: UIViewController {
     private func loadPopularGithubData() {
         
         activityIndicator.startAnimating()
-        viewModel.fetchPopularGithubData { [weak self] in
+        viewModel.fetchPopularGithubData(lang: selectedDropdown.text!){ [weak self] in
             self?.tableView?.dataSource = self
             self?.tableView?.delegate = self
             self?.tableView?.reloadData()
