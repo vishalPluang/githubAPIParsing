@@ -4,6 +4,7 @@ import DropDown
 class GithubViewController: UIViewController {
     
     
+    @IBOutlet weak var dropDownButton: UIButton!
     @IBOutlet weak var dropDownview: UIView!
     
     @IBOutlet weak var selectedDropdown: UILabel!
@@ -15,7 +16,7 @@ class GithubViewController: UIViewController {
     
     var viewModel = GithubViewModel()
     let dropDown = DropDown()
-    let dropDownValues = ["c++", "java", "python"]
+    let dropDownValues = ["c++", "java", "python","none"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +35,22 @@ class GithubViewController: UIViewController {
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
             selectedDropdown.text = item
-            loadPopularGithubData()
+            if(item != "none")
+            {
+                loadPopularGithubData()
+            }
+            else
+            {
+                viewDidLoad()
+                tableView?.dataSource = nil
+                tableView?.reloadData()
+            }
         }
     }
     
     @IBAction func showLanguages(_ sender: Any) {
         dropDown.show()
+        dropDownButton.setTitle("down", for: .normal)
     }
 
     deinit {
@@ -54,6 +65,7 @@ class GithubViewController: UIViewController {
             self?.tableView?.delegate = self
             self?.tableView?.reloadData()
             self?.activityIndicator.stopAnimating()
+            self?.dropDownButton.setTitle("up", for: .normal)
         }
     }
 }

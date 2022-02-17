@@ -8,7 +8,7 @@ class GithubTableViewCell: UITableViewCell {
     
     func setCellWithValuesOf(_ item:Item)
     {
-        updateUI(repoName: item.repo, poster: item.avatars[0])
+        updateUI(repoName: item.repo, poster: (item.avatars.count != 0) ? item.avatars[0] : "")
     }
         
     private func updateUI(repoName: String?, poster: String?)
