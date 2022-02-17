@@ -20,7 +20,12 @@ class GithubViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Treding Repositry"
+        loadDropDown()
         
+    }
+    
+    private func loadDropDown()
+    {
         selectedDropdown.text = "Select a language for trending repositry"
         dropDown.anchorView = dropDownview
         dropDown.dataSource = dropDownValues
