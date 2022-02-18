@@ -128,32 +128,6 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="81.696428571428569"/>
         </scene>
-        <!--Network Error View Controller-->
-        <scene sceneID="0N3-Mr-r0z">
-            <objects>
-                <viewController storyboardIdentifier="NetworkErrorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lqe-MW-VH1" customClass="NetworkErrorViewController" customModule="gitHubAPI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ee8-Ae-Shi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_No Connection" translatesAutoresizingMaskIntoConstraints="NO" id="wGe-Ve-YOr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="nM1-T8-Q9C"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="wGe-Ve-YOr" secondAttribute="bottom" id="7r4-A6-pmA"/>
-                            <constraint firstItem="wGe-Ve-YOr" firstAttribute="top" secondItem="ee8-Ae-Shi" secondAttribute="top" id="8LC-aa-bCv"/>
-                            <constraint firstItem="wGe-Ve-YOr" firstAttribute="leading" secondItem="nM1-T8-Q9C" secondAttribute="leading" id="I1k-Zl-geY"/>
-                            <constraint firstItem="nM1-T8-Q9C" firstAttribute="trailing" secondItem="wGe-Ve-YOr" secondAttribute="trailing" id="P2W-H8-55u"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QZZ-fV-9VJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-578" y="-35"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="bL9-s0-kH6">
             <objects>
@@ -183,9 +157,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ret-3h-bjq">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemYellowColor"/>
+                                <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IPJ-ba-wwl">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="30" reuseIdentifier="repoCell" id="GUS-zQ-mxk" customClass="DetailTableViewCell" customModule="gitHubAPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="63"/>
+                                        <rect key="frame" x="0.0" y="144.5" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GUS-zQ-mxk" id="eFg-0Q-hyS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
@@ -225,7 +204,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uhi-j0-hFX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
                             <constraint firstItem="ret-3h-bjq" firstAttribute="trailing" secondItem="Uhi-j0-hFX" secondAttribute="trailing" id="192-f2-GPV"/>
                             <constraint firstItem="ret-3h-bjq" firstAttribute="leading" secondItem="Uhi-j0-hFX" secondAttribute="leading" id="7fM-In-MRz"/>
@@ -234,6 +213,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="profileImage" destination="IPJ-ba-wwl" id="LOs-0a-Eb6"/>
                         <outlet property="tableView" destination="ret-3h-bjq" id="qaS-zv-zqb"/>
                     </connections>
                 </viewController>
@@ -243,7 +223,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1_No Connection" width="500" height="889"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -252,6 +231,12 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -2,12 +2,16 @@ import Foundation
 
 class GithubViewModel {
     
-    private var apiService = ApiService()
+    private var apiManager: ApiService
     var popularRepos = [Item]()
+    
+    init(apiManager: ApiService) {
+        self.apiManager = apiManager
+    }
     
     func fetchPopularGithubData(lang: String, completion: @escaping () -> ()) {
         
-        apiService.getPopularGithubData(language: lang) { [weak self] (result) in
+        apiManager.getPopularGithubData(language: lang) { [weak self] (result) in
             
             switch result {
             case .success(let listOf):

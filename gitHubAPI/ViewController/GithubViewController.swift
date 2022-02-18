@@ -14,7 +14,7 @@ class GithubViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView?
     
-    var viewModel = GithubViewModel()
+    var viewModel = GithubViewModel(apiManager: ApiService())
     let dropDown = DropDown()
     let dropDownValues = ["c++", "java", "python", "swift", "scala", "none"]
     
@@ -92,6 +92,11 @@ extension GithubViewController: UITableViewDataSource, UITableViewDelegate {
         let repoItem = viewModel.cellForRowAt(indexPath: indexPath)
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "NewDetailsViewController") as? NewDetailsViewController
         vc?.repoItem = repoItem
+        if let cell = tableView.cellForRow(at: indexPath) as? GithubTableViewCell
+        {
+            let image = cell.posterImage.image
+            vc?.image = image
+        }
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
