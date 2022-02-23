@@ -2,10 +2,10 @@ import Foundation
 
 class GithubViewModel {
     
-    private var apiManager: ApiService
+    private var apiManager: ApiProtocol
     var popularRepos = [Item]()
     
-    init(apiManager: ApiService) {
+    init(apiManager: ApiProtocol) {
         self.apiManager = apiManager
     }
     

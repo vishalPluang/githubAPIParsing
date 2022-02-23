@@ -1,6 +1,11 @@
 import Foundation
 
-struct ApiService
+protocol ApiProtocol
+{
+    func getPopularGithubData(language: String, completionHandler: @escaping(Result<GitHub, Error>) -> Void)
+}
+
+struct ApiService: ApiProtocol
 {
     func getPopularGithubData(language: String, completionHandler: @escaping(Result<GitHub, Error>) -> Void)
     {
