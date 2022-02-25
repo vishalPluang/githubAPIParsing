@@ -1,28 +1,23 @@
 import UIKit
 import DropDown
 
-class GithubViewController: UIViewController {
-    
-    
+class GithubViewController: UIViewController
+{
     @IBOutlet weak var dropDownButton: UIButton!
     @IBOutlet weak var dropDownview: UIView!
-    
     @IBOutlet weak var selectedDropdown: UILabel!
-    
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var tableView: UITableView?
     
     var viewModel = GithubViewModel(apiManager: ApiService())
     let dropDown = DropDown()
     let dropDownValues = ["c++", "java", "python", "swift", "scala", "none"]
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.title = "Treding Repositry"
         loadDropDown()
-        
     }
     
     private func loadDropDown()
@@ -48,17 +43,19 @@ class GithubViewController: UIViewController {
         }
     }
     
-    @IBAction func showLanguages(_ sender: Any) {
+    @IBAction func showLanguages(_ sender: Any)
+    {
         dropDown.show()
         dropDownButton.setTitle("down", for: .normal)
     }
 
-    deinit {
+    deinit
+    {
        debugPrint("------ GithubViewController is removed from memory -------")
     }
     
-    private func loadPopularGithubData() {
-        
+    private func loadPopularGithubData()
+    {
         activityIndicator.startAnimating()
         viewModel.fetchPopularGithubData(lang: selectedDropdown.text!){ [weak self] in
             self?.tableView?.dataSource = self
@@ -70,7 +67,8 @@ class GithubViewController: UIViewController {
     }
 }
 
-extension GithubViewController: UITableViewDataSource, UITableViewDelegate {
+extension GithubViewController: UITableViewDataSource, UITableViewDelegate
+{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return viewModel.numberOfRowsInSection(section: section)
@@ -100,4 +98,3 @@ extension GithubViewController: UITableViewDataSource, UITableViewDelegate {
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
-

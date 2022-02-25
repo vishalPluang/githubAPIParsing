@@ -1,7 +1,8 @@
 import UIKit
+import SafariServices
 
-class NewDetailsViewController: UIViewController {
-
+class NewDetailsViewController: UIViewController
+{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
     
@@ -9,12 +10,13 @@ class NewDetailsViewController: UIViewController {
     var repoItem: Item?
     var image: UIImage?
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.title = "Details Of The Repositry"
         viewDetailsModel.extractDetails(repoItem!)
         profileImage.image = image
-        self.tableView.backgroundColor = UIColor.orange
+        self.tableView.backgroundColor = UIColor.systemYellow
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.reloadData()
@@ -34,7 +36,18 @@ extension NewDetailsViewController: UITableViewDelegate, UITableViewDataSource
         
         let detailItem = viewDetailsModel.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(detailItem)
-        cell.backgroundColor = UIColor.systemPink
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailItem = viewDetailsModel.cellForRowAt(indexPath: indexPath)
+        guard let url = URL(string: detailItem.explain) else
+        {
+            return
+        }
+        let vc = SFSafariViewController(url: url)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
