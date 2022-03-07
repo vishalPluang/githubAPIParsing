@@ -51,7 +51,7 @@ class GithubViewController: UIViewController
 
     deinit
     {
-       debugPrint("------ GithubViewController is removed from memory -------")
+        print("------ GithubViewController is removed from memory -------")
     }
     
     private func loadPopularGithubData()

@@ -21,6 +21,11 @@ class NewDetailsViewController: UIViewController
         self.tableView.delegate = self
         self.tableView.reloadData()
     }
+    
+    deinit
+    {
+        print("new details view controller is removed from memory!")
+    }
 }
 
 extension NewDetailsViewController: UITableViewDelegate, UITableViewDataSource
@@ -36,18 +41,25 @@ extension NewDetailsViewController: UITableViewDelegate, UITableViewDataSource
         
         let detailItem = viewDetailsModel.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(detailItem)
+        cell.selectionStyle = .none
+        if indexPath.row == 2
+        {
+            cell.explain.textColor = UIColor.systemBlue
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let detailItem = viewDetailsModel.cellForRowAt(indexPath: indexPath)
-        guard let url = URL(string: detailItem.explain) else
+        if indexPath.row == 2
         {
-            return
+            let detailItem = viewDetailsModel.cellForRowAt(indexPath: indexPath)
+            guard let url = URL(string: detailItem.explain) else
+            {
+                return
+            }
+            let vc = SFSafariViewController(url: url)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        let vc = SFSafariViewController(url: url)
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
