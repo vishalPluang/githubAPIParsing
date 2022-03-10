@@ -22,6 +22,12 @@
 		0644E89D27B528CC00798469 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644E89C27B528CC00798469 /* DetailTableViewCell.swift */; };
 		069C31E827BFB5730061B72F /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069C31E727BFB5730061B72F /* MockAPIService.swift */; };
 		06C78BE627BE4A6800EC8397 /* ApiUnitTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C78BE527BE4A6800EC8397 /* ApiUnitTestCases.swift */; };
+		06CFA5D527D72BB7009B6F3A /* gitHubAPICoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06CFA5D327D72BB7009B6F3A /* gitHubAPICoreData.xcdatamodeld */; };
+		06CFA5D827D72C7D009B6F3A /* CDGithub+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFA5D627D72C7D009B6F3A /* CDGithub+CoreDataClass.swift */; };
+		06CFA5D927D72C7D009B6F3A /* CDGithub+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFA5D727D72C7D009B6F3A /* CDGithub+CoreDataProperties.swift */; };
+		06CFA5DC27D72E7D009B6F3A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFA5DB27D72E7D009B6F3A /* Protocols.swift */; };
+		06CFA5E027D72F96009B6F3A /* CoreDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFA5DF27D72F96009B6F3A /* CoreDataAPI.swift */; };
+		06CFA5E227D73046009B6F3A /* PersistantStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CFA5E127D73046009B6F3A /* PersistantStorage.swift */; };
 		06EEBB5227C640440022F077 /* ViewModelUnitTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EEBB5127C640440022F077 /* ViewModelUnitTestCases.swift */; };
 		3D15959980F672386E96C518 /* Pods_gitHubAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E823750271A2C224EEB09363 /* Pods_gitHubAPI.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +61,12 @@
 		069C31E727BFB5730061B72F /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		06C78BDC27BE499F00EC8397 /* gitHubAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gitHubAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C78BE527BE4A6800EC8397 /* ApiUnitTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUnitTestCases.swift; sourceTree = "<group>"; };
+		06CFA5D427D72BB7009B6F3A /* gitHubAPICoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gitHubAPICoreData.xcdatamodel; sourceTree = "<group>"; };
+		06CFA5D627D72C7D009B6F3A /* CDGithub+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDGithub+CoreDataClass.swift"; sourceTree = "<group>"; };
+		06CFA5D727D72C7D009B6F3A /* CDGithub+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDGithub+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		06CFA5DB27D72E7D009B6F3A /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		06CFA5DF27D72F96009B6F3A /* CoreDataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAPI.swift; sourceTree = "<group>"; };
+		06CFA5E127D73046009B6F3A /* PersistantStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistantStorage.swift; sourceTree = "<group>"; };
 		06EEBB5127C640440022F077 /* ViewModelUnitTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelUnitTestCases.swift; sourceTree = "<group>"; };
 		55C46DD28730A0A7FCF5A2C8 /* Pods-gitHubAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gitHubAPI.debug.xcconfig"; path = "Target Support Files/Pods-gitHubAPI/Pods-gitHubAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		A74CD7396D421B21F7EA9556 /* Pods-gitHubAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gitHubAPI.release.xcconfig"; path = "Target Support Files/Pods-gitHubAPI/Pods-gitHubAPI.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				0644E87327B13C8000798469 /* gitHubAPI */,
+				06CFA5D327D72BB7009B6F3A /* gitHubAPICoreData.xcdatamodeld */,
 				06C78BDD27BE499F00EC8397 /* gitHubAPITests */,
 				0644E87227B13C8000798469 /* Products */,
 				D59FA9EEB19373A7FC729439 /* Pods */,
@@ -120,7 +133,8 @@
 		0644E88927B13E8F00798469 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0644E88A27B13EA100798469 /* model.swift */,
+				06CFA5C927D7208D009B6F3A /* CoreDataModel */,
+				06CFA5C827D72079009B6F3A /* ApiModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -128,7 +142,10 @@
 		0644E88C27B13F7B00798469 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				0644E88D27B13F8C00798469 /* apiService.swift */,
+				06CFA5DE27D72F5F009B6F3A /* CoreDataResource */,
+				06CFA5DD27D72F4D009B6F3A /* ApiResource */,
+				06CFA5DA27D72E5D009B6F3A /* Repository */,
+				06CFA5E127D73046009B6F3A /* PersistantStorage.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -177,6 +194,47 @@
 				069C31E627BFB5260061B72F /* UnitTests */,
 			);
 			path = gitHubAPITests;
+			sourceTree = "<group>";
+		};
+		06CFA5C827D72079009B6F3A /* ApiModel */ = {
+			isa = PBXGroup;
+			children = (
+				0644E88A27B13EA100798469 /* model.swift */,
+			);
+			path = ApiModel;
+			sourceTree = "<group>";
+		};
+		06CFA5C927D7208D009B6F3A /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				06CFA5D627D72C7D009B6F3A /* CDGithub+CoreDataClass.swift */,
+				06CFA5D727D72C7D009B6F3A /* CDGithub+CoreDataProperties.swift */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		06CFA5DA27D72E5D009B6F3A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				06CFA5DB27D72E7D009B6F3A /* Protocols.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		06CFA5DD27D72F4D009B6F3A /* ApiResource */ = {
+			isa = PBXGroup;
+			children = (
+				0644E88D27B13F8C00798469 /* apiService.swift */,
+			);
+			path = ApiResource;
+			sourceTree = "<group>";
+		};
+		06CFA5DE27D72F5F009B6F3A /* CoreDataResource */ = {
+			isa = PBXGroup;
+			children = (
+				06CFA5DF27D72F96009B6F3A /* CoreDataAPI.swift */,
+			);
+			path = CoreDataResource;
 			sourceTree = "<group>";
 		};
 		AF5A68649E72C92BE412DA04 /* Frameworks */ = {
@@ -341,15 +399,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06CFA5D527D72BB7009B6F3A /* gitHubAPICoreData.xcdatamodeld in Sources */,
+				06CFA5D827D72C7D009B6F3A /* CDGithub+CoreDataClass.swift in Sources */,
 				0644E87927B13C8000798469 /* GithubViewController.swift in Sources */,
 				0644E88E27B13F8C00798469 /* apiService.swift in Sources */,
+				06CFA5E227D73046009B6F3A /* PersistantStorage.swift in Sources */,
 				0644E89B27B524F900798469 /* NewDetailsViewModel.swift in Sources */,
 				0644E87527B13C8000798469 /* AppDelegate.swift in Sources */,
 				0644E89127B1433200798469 /* GithubViewModel.swift in Sources */,
+				06CFA5D927D72C7D009B6F3A /* CDGithub+CoreDataProperties.swift in Sources */,
 				0644E89427B1472D00798469 /* GithubTableViewCell.swift in Sources */,
+				06CFA5DC27D72E7D009B6F3A /* Protocols.swift in Sources */,
 				0644E87727B13C8000798469 /* SceneDelegate.swift in Sources */,
 				0644E89927B5248F00798469 /* NewDetailsViewController.swift in Sources */,
 				0644E88B27B13EA100798469 /* model.swift in Sources */,
+				06CFA5E027D72F96009B6F3A /* CoreDataAPI.swift in Sources */,
 				0644E89D27B528CC00798469 /* DetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,6 +697,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		06CFA5D327D72BB7009B6F3A /* gitHubAPICoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				06CFA5D427D72BB7009B6F3A /* gitHubAPICoreData.xcdatamodel */,
+			);
+			currentVersion = 06CFA5D427D72BB7009B6F3A /* gitHubAPICoreData.xcdatamodel */;
+			path = gitHubAPICoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0644E86927B13C8000798469 /* Project object */;
 }

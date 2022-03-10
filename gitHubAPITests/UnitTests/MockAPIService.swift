@@ -21,7 +21,7 @@ struct CustomError: OurErrorProtocol {
     }
 }
 
-class MockAPIService: ApiProtocol
+class MockAPIService: ApiBaseProtocol
 {
     func getPopularGithubData(language: String, completionHandler: @escaping(Result<GitHub, Error>) -> Void)
     {

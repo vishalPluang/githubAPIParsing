@@ -1,11 +1,6 @@
 import Foundation
 
-protocol ApiProtocol
-{
-    func getPopularGithubData(language: String, completionHandler: @escaping(Result<GitHub, Error>) -> Void)
-}
-
-struct ApiService: ApiProtocol
+struct ApiService: ApiBaseProtocol
 {
     func getPopularGithubData(language: String, completionHandler: @escaping(Result<GitHub, Error>) -> Void)
     {
@@ -15,19 +10,22 @@ struct ApiService: ApiProtocol
         
         URLSession.shared.dataTask(with: apiUrl){(data, response, error) in
             
-            if let error = error {
+            if let error = error
+            {
                 completionHandler(.failure(error))
                 print("error : \(error.localizedDescription)")
                 return
             }
             
-            guard let response = response else {
+            guard let response = response else
+            {
                 return
             }
             
             print("response = \(response)")
             
-            guard let data = data else {
+            guard let data = data else
+            {
                 print("No data")
                 return
             }
@@ -35,7 +33,8 @@ struct ApiService: ApiProtocol
             do
             {
                 let jsonData = try JSONDecoder().decode(GitHub.self, from: data)
-                DispatchQueue.main.async {
+                DispatchQueue.main.async
+                {
                     completionHandler(.success(jsonData))
                 }
             }

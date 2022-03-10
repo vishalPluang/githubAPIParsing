@@ -11,7 +11,7 @@ class GithubViewController: UIViewController
     
     var viewModel = GithubViewModel(apiManager: ApiService())
     let dropDown = DropDown()
-    let dropDownValues = ["c++", "java", "python", "swift", "scala", "none"]
+    let dropDownValues = ["C", "Java", "Python", "Swift", "Scala", "None"]
     
     override func viewDidLoad()
     {

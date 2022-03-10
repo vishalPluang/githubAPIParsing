@@ -1,10 +1,12 @@
 import Foundation
 
-struct GitHub: Decodable {
-    let items: [Item]
+struct GitHub: Decodable
+{
+    var items: [Item]
 }
 
-struct Item: Decodable {
+struct Item: Decodable
+{
     let repo: String
     let repoLink: String
     let desc: String
@@ -12,7 +14,8 @@ struct Item: Decodable {
     let stars, forks, addedStars: String
     let avatars: [String]
 
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey
+    {
         case repo
         case repoLink = "repo_link"
         case desc, lang, stars, forks
