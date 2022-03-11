@@ -9,7 +9,7 @@ class GithubViewController: UIViewController
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView?
     
-    var viewModel = GithubViewModel(apiManager: ApiService())
+    var viewModel = GithubViewModel(_cdGithubDataRepository: CoreDataRepository(), _githubApiRepository: ApiService())
     let dropDown = DropDown()
     let dropDownValues = ["C", "Java", "Python", "Swift", "Scala", "None"]
     
