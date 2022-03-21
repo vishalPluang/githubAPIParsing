@@ -42,7 +42,18 @@ class SearchBarViewController: UIViewController, UITableViewDataSource, UISearch
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SecondGithubViewController") as? SecondGithubViewController
         vc?.selectedLanguage = selectedLanguage
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if selectedLanguage == "C" || selectedLanguage == "Java" || selectedLanguage == "Python" || selectedLanguage == "Swift"
+        {
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Error", message: "Please Enter A Valid Language.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
