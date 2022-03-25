@@ -17,7 +17,10 @@ class SearchBarViewController: UIViewController, UITableViewDataSource, UISearch
         searchBar.delegate = self
         filteredData = data
     }
+}
 
+extension SearchBarViewController
+{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as UITableViewCell
@@ -39,7 +42,8 @@ class SearchBarViewController: UIViewController, UITableViewDataSource, UISearch
         tableView.reloadData()
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SecondGithubViewController") as? SecondGithubViewController
         vc?.selectedLanguage = selectedLanguage
         if selectedLanguage == "C" || selectedLanguage == "Java" || selectedLanguage == "Python" || selectedLanguage == "Swift"
@@ -54,7 +58,5 @@ class SearchBarViewController: UIViewController, UITableViewDataSource, UISearch
             }))
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
-    
 }
